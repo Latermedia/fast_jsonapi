@@ -51,6 +51,7 @@ module FastJsonapi
         data << self.class.record_hash(record)
         included.concat self.class.get_included_records(record, @includes, @known_included_objects) if @includes.present?
       end
+      return data
 
       serializable_hash[:data] = data
       serializable_hash[:included] = included if @includes.present?

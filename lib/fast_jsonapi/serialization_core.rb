@@ -87,7 +87,7 @@ module FastJsonapi
         else
           id = record_id ? record.send(record_id) : record.id
           record_hash = id_hash(id, record_type) || { id: nil, type: record_type }
-          record_hash[:attributes] = attributes_hash(record) if attributes_to_serialize.present?
+          return record_hash[:attributes] = attributes_hash(record) if attributes_to_serialize.present?
           record_hash[:relationships] = relationships_hash(record) if relationships_to_serialize.present?
           record_hash
         end
